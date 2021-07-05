@@ -7,31 +7,31 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.certificados.model.Estudiante;
-import com.certificados.repository.EstudianteRepository;
+import com.certificados.model.Docente;
+import com.certificados.repository.DocenteRepository;
 
 @Service
-public class EstudianteServiceImpl implements EstudianteService{
+public class DocenteServiceImpl implements DocenteService{
 
 	@Autowired
-	private EstudianteRepository repo;
-
+	private DocenteRepository repo;
+	
 	@Transactional
 	@Override
-	public void save(Estudiante estudiante) throws Exception {
-		if(estudiante == null) {
+	public void save(Docente docente) throws Exception {
+		if(docente == null) {
 			throw new Exception();
 		}
 		try {
-			repo.save(estudiante);
+			repo.save(docente);
 		}catch(DataAccessException e) {
 			e.printStackTrace();
 			throw new Exception();
-		}		
+		}
 	}
 
 	@Override
-	public List<Estudiante> getAllEstudiantes() {		
+	public List<Docente> getAllDocentes() {		
 		return repo.findAll();
-	}	
+	}
 }

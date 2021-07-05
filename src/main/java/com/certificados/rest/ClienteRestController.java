@@ -19,7 +19,7 @@ public class ClienteRestController {
 	@Autowired
 	private EstudianteServiceImpl estudianteService;
 	
-	@PostMapping(value = "/estudiantes/agregar", produces = "aplication/json")
+	@PostMapping(value = "/estudiantes/agregar", produces = "application/json")
 	public ResponseEntity<Estudiante> addEstudiante(@RequestBody Estudiante estudiante){
 		try {
 			estudianteService.save(estudiante);
@@ -30,7 +30,7 @@ public class ClienteRestController {
 		}		
 	}
 	
-	@GetMapping(value = "/estudiante", produces = "aplication/json")
+	@GetMapping(value = "/estudiante", produces = "application/json")
 	public ResponseEntity<List<Estudiante>> getAllEstudiantes(){
 		List<Estudiante> estudiantes = estudianteService.getAllEstudiantes();
 		
