@@ -25,7 +25,7 @@ public class CertificadoRepositoryImpl implements CertificadoRepository{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Certificados> findAll() {
-		return this.em.createQuery("SELECT certificado FROM Certificado certificado").getResultList();
+		return this.em.createQuery("SELECT certificados FROM Certificados certificados").getResultList();
 	}
 	
 	public Certificados findById(int id) throws DataAccessException{
