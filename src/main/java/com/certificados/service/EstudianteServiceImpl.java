@@ -9,13 +9,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.certificados.model.Estudiante;
 import com.certificados.repository.EstudianteRepository;
+import com.certificados.repository.EstudianteRepositoryImpl;
 
 @Service
 public class EstudianteServiceImpl implements EstudianteService{
 
 	@Autowired
-	private EstudianteRepository repo;
+	private EstudianteRepositoryImpl repo;
 
+	@Override
+	public List<Estudiante> getAllEstudiantes() {		
+		return repo.findAll();
+	}
+	
 	@Transactional
 	@Override
 	public void save(Estudiante estudiante) throws Exception {
@@ -28,10 +34,5 @@ public class EstudianteServiceImpl implements EstudianteService{
 			e.printStackTrace();
 			throw new Exception();
 		}		
-	}
-
-	@Override
-	public List<Estudiante> getAllEstudiantes() {		
-		return repo.findAll();
 	}	
 }

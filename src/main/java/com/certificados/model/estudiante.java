@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "estudiante")
 public class Estudiante {
 	
 	@Id
@@ -16,11 +18,11 @@ public class Estudiante {
 	@Column(name = "nombre", length = 50)
 	private String nombre;
 	
-	@Column(name = "apellidoPaterno", length = 50)
-	private String apellidoPaterno;
-	
 	@Column(name = "apellidoMaterno", length = 50)
 	private String apellidoMaterno;
+	
+	@Column(name = "apellidoPaterno", length = 50)
+	private String apellidoPaterno;		
 	
 	@Column(name = "direccion", length = 50)
 	private String direccion;
@@ -28,7 +30,7 @@ public class Estudiante {
 	@Column(name = "email", length = 100)
 	private String email;
 	
-	@OneToMany(mappedBy = "estudiante")
+	@OneToMany(mappedBy = "alumnoSolicitante")
 	private List<Certificados> listaCertificados;
 
 	public String getRut() {

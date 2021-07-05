@@ -8,18 +8,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.certificados.model.Docente;
 import com.certificados.service.DocenteServiceImpl;
 
+@RequestMapping(value="/docentes")
 @RestController
 public class DocenteRestController {
 	
 	@Autowired
 	private DocenteServiceImpl docenteService;
 	
-	@PostMapping(value = "/docentes/agregar", produces = "application/json")
+	@PostMapping(value = "/agregar", produces = "application/json")
 	public ResponseEntity<Docente> addDocente(@RequestBody Docente docente){
 		try {
 			docenteService.save(docente);
@@ -30,7 +32,7 @@ public class DocenteRestController {
 		}		
 	}
 	
-	@GetMapping(value = "/docentes", produces = "application/json")
+	@GetMapping(value = "", produces = "application/json")
 	public ResponseEntity<List<Docente>> getAllDocentes(){
 		List<Docente> docentes = docenteService.getAllDocentes();
 		

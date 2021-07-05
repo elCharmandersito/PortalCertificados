@@ -4,36 +4,29 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
+@Table(name = "certificados")
 public class Certificados {
 	
 	@Id
 	private int id;
 	
-	@Column(name = "tipoCertificado", length = 100)
-	private String tipoCertificado;
+	@Column(name = "nombreCertificado", length = 100)
+	private String nombreCertificado;
 	
 	@Column(name = "motivo", length = 100)
-	private String motivo;
-	
-	@Column(name = "rutAlumno", length = 10)
-	private String rutAlumno;
-	
-	@Column(name = "rutDocente", length = 10)
-	private String rutDocente;
+	private String motivo;	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "rutAlumno")
 	@JsonBackReference
 	private Estudiante alumnoSolicitante;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "rutDocente")
 	@JsonBackReference
 	private Docente docenteHabilitador;
 
@@ -45,12 +38,12 @@ public class Certificados {
 		this.id = id;
 	}
 
-	public String getTipoCertificado() {
-		return tipoCertificado;
+	public String getNombreCertificado() {
+		return nombreCertificado;
 	}
 
-	public void setTipoCertificado(String tipoCertificado) {
-		this.tipoCertificado = tipoCertificado;
+	public void setNombreCertificado(String nombreCertificado) {
+		this.nombreCertificado = nombreCertificado;
 	}
 
 	public String getMotivo() {
@@ -59,22 +52,6 @@ public class Certificados {
 
 	public void setMotivo(String motivo) {
 		this.motivo = motivo;
-	}
-
-	public String getRutAlumno() {
-		return rutAlumno;
-	}
-
-	public void setRutAlumno(String rutAlumno) {
-		this.rutAlumno = rutAlumno;
-	}
-
-	public String getRutDocente() {
-		return rutDocente;
-	}
-
-	public void setRutDocente(String rutDocente) {
-		this.rutDocente = rutDocente;
 	}
 
 	public Estudiante getAlumnoSolicitante() {

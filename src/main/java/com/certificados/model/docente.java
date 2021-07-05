@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "docente")
 public class Docente {
 	
 	@Id
@@ -34,8 +36,8 @@ public class Docente {
 	@Column(name = "fono")
 	private int fono;
 	
-	@OneToMany(mappedBy = "docente")
-	private List<Certificados> certificadosSolicitados;
+	@OneToMany(mappedBy = "docenteHabilitador")
+	private List<Certificados> alumnosConCertificados;
 
 	public String getRut() {
 		return rut;
@@ -100,12 +102,12 @@ public class Docente {
 	public void setFono(int fono) {
 		this.fono = fono;
 	}
-
+/*
 	public List<Certificados> getCertificadosSolicitados() {
 		return certificadosSolicitados;
 	}
 
 	public void setCertificadosSolicitados(List<Certificados> certificadosSolicitados) {
 		this.certificadosSolicitados = certificadosSolicitados;
-	}	
+	}	*/
 }

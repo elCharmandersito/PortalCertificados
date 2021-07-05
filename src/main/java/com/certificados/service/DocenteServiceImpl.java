@@ -9,12 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.certificados.model.Docente;
 import com.certificados.repository.DocenteRepository;
+import com.certificados.repository.DocenteRepositoryImpl;
 
 @Service
 public class DocenteServiceImpl implements DocenteService{
 
 	@Autowired
-	private DocenteRepository repo;
+	private DocenteRepositoryImpl repo;
 	
 	@Transactional
 	@Override

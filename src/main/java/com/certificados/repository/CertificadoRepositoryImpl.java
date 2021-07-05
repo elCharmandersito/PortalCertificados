@@ -14,45 +14,40 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
-import com.certificados.model.Docente;
+import com.certificados.model.Certificados;
 
 @Repository
-public class DocenteRepositoryImpl implements DocenteRepository{
+public class CertificadoRepositoryImpl implements CertificadoRepository{
 
 	@PersistenceContext
 	private EntityManager em;
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Docente> findAll() {
-		return this.em.createQuery("SELECT docente FROM Docente docente").getResultList();
+	public List<Certificados> findAll() {
+		return this.em.createQuery("SELECT certificado FROM Certificado certificado").getResultList();
 	}
 	
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Docente> findByNombre(String nombre) throws DataAccessException {		
-		Query query = this.em.createQuery(
-				"SELECT DISTINCT estudiante "
-			  + "FROM Estudiante estudiante "
-			  + "WHERE estudiante.nombre LIKE :nombre");
-			query.setParameter("nombre", nombre + "%");
-			return query.getResultList();
+	public Certificados findById(int id) throws DataAccessException{
+		Query query = this.em.createQuery("SELECT DISTINCT certificado FROM Certificado certificado WHERE certificado.id = :id");
+        query.setParameter("id", id );
+        return (Certificados) query.getResultList().get(0);
 	}
 
 	@Override
-	public List<Docente> findAll(Sort sort) {
+	public List<Certificados> findAll(Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Docente> findAllById(Iterable<Integer> ids) {
+	public List<Certificados> findAllById(Iterable<Integer> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Docente> List<S> saveAll(Iterable<S> entities) {
+	public <S extends Certificados> List<S> saveAll(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -64,19 +59,19 @@ public class DocenteRepositoryImpl implements DocenteRepository{
 	}
 
 	@Override
-	public <S extends Docente> S saveAndFlush(S entity) {
+	public <S extends Certificados> S saveAndFlush(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Docente> List<S> saveAllAndFlush(Iterable<S> entities) {
+	public <S extends Certificados> List<S> saveAllAndFlush(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteAllInBatch(Iterable<Docente> entities) {
+	public void deleteAllInBatch(Iterable<Certificados> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -94,43 +89,43 @@ public class DocenteRepositoryImpl implements DocenteRepository{
 	}
 
 	@Override
-	public Docente getOne(Integer id) {
+	public Certificados getOne(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Docente getById(Integer id) {
+	public Certificados getById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Docente> List<S> findAll(Example<S> example) {
+	public <S extends Certificados> List<S> findAll(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Docente> List<S> findAll(Example<S> example, Sort sort) {
+	public <S extends Certificados> List<S> findAll(Example<S> example, Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Page<Docente> findAll(Pageable pageable) {
+	public Page<Certificados> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Docente> S save(S entity) {
+	public <S extends Certificados> S save(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Optional<Docente> findById(Integer id) {
+	public Optional<Certificados> findById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -154,7 +149,7 @@ public class DocenteRepositoryImpl implements DocenteRepository{
 	}
 
 	@Override
-	public void delete(Docente entity) {
+	public void delete(Certificados entity) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -166,7 +161,7 @@ public class DocenteRepositoryImpl implements DocenteRepository{
 	}
 
 	@Override
-	public void deleteAll(Iterable<? extends Docente> entities) {
+	public void deleteAll(Iterable<? extends Certificados> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -178,26 +173,27 @@ public class DocenteRepositoryImpl implements DocenteRepository{
 	}
 
 	@Override
-	public <S extends Docente> Optional<S> findOne(Example<S> example) {
+	public <S extends Certificados> Optional<S> findOne(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Docente> Page<S> findAll(Example<S> example, Pageable pageable) {
+	public <S extends Certificados> Page<S> findAll(Example<S> example, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Docente> long count(Example<S> example) {
+	public <S extends Certificados> long count(Example<S> example) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public <S extends Docente> boolean exists(Example<S> example) {
+	public <S extends Certificados> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
-	}	
+	}
+
 }
