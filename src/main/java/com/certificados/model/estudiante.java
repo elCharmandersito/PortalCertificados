@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class estudiante {
+public class Estudiante {
 	
 	@Id
 	private String rut;
@@ -29,7 +29,7 @@ public class estudiante {
 	private String email;
 	
 	@OneToMany(mappedBy = "estudiante")
-	private List<certificados> listaCertificados;
+	private List<Certificados> listaCertificados;
 
 	public String getRut() {
 		return rut;
@@ -79,11 +79,11 @@ public class estudiante {
 		this.email = email;
 	}
 
-	public List<certificados> getListaCertificados() {
+	public List<Certificados> getListaCertificados() {
 		return listaCertificados;
 	}
 
-	public void setListaCertificados(List<certificados> listaCertificados) {
+	public void setListaCertificados(List<Certificados> listaCertificados) {
 		this.listaCertificados = listaCertificados;
 	}
 }

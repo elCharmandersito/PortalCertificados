@@ -1,7 +1,5 @@
 package com.certificados.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,7 +10,7 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-public class certificados {
+public class Certificados {
 	
 	@Id
 	private int id;
@@ -32,12 +30,12 @@ public class certificados {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "rutAlumno")
 	@JsonBackReference
-	private estudiante alumnoSolicitante;
+	private Estudiante alumnoSolicitante;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "rutDocente")
 	@JsonBackReference
-	private docente docenteHabilitador;
+	private Docente docenteHabilitador;
 
 	public int getId() {
 		return id;
@@ -79,19 +77,19 @@ public class certificados {
 		this.rutDocente = rutDocente;
 	}
 
-	public estudiante getAlumnoSolicitante() {
+	public Estudiante getAlumnoSolicitante() {
 		return alumnoSolicitante;
 	}
 
-	public void setAlumnoSolicitante(estudiante alumnoSolicitante) {
+	public void setAlumnoSolicitante(Estudiante alumnoSolicitante) {
 		this.alumnoSolicitante = alumnoSolicitante;
 	}
 
-	public docente getDocenteHabilitador() {
+	public Docente getDocenteHabilitador() {
 		return docenteHabilitador;
 	}
 
-	public void setDocenteHabilitador(docente docenteHabilitador) {
+	public void setDocenteHabilitador(Docente docenteHabilitador) {
 		this.docenteHabilitador = docenteHabilitador;
 	}
 }
