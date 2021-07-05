@@ -102,12 +102,11 @@ public class Docente {
 	public void setFono(int fono) {
 		this.fono = fono;
 	}
-/*
-	public List<Certificados> getCertificadosSolicitados() {
-		return certificadosSolicitados;
-	}
 
+	public List<Certificados> getCertificadosSolicitados() {
+		return alumnosConCertificados;
+	}
 	public void setCertificadosSolicitados(List<Certificados> certificadosSolicitados) {
-		this.certificadosSolicitados = certificadosSolicitados;
-	}	*/
+		this.alumnosConCertificados = certificadosSolicitados;
+	}	
 }
