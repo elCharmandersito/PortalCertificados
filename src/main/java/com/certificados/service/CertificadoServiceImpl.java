@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.certificados.model.Certificados;
-import com.certificados.repository.CertificadoRepository;
 import com.certificados.repository.CertificadoRepositoryImpl;
 
 @Service
