@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.certificados.model.Docente;
-import com.certificados.repository.DocenteRepositoryImpl;
+import com.certificados.repository.DocenteRepository;
 
 @Service
 public class DocenteServiceImpl implements DocenteService{
 
 	@Autowired
-	private DocenteRepositoryImpl repo;
+	private DocenteRepository repo;
 	
 	@Transactional
 	@Override

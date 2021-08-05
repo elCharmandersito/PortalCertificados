@@ -24,6 +24,7 @@ public class DocenteRestController {
 	@PostMapping(value = "/agregar", produces = "application/json")
 	public ResponseEntity<Docente> addDocente(@RequestBody Docente docente){
 		try {
+			System.out.println(docente.getNombre());
 			docenteService.save(docente);
 			return new ResponseEntity<Docente>(docente, HttpStatus.CREATED);
 		}catch(Exception e) {

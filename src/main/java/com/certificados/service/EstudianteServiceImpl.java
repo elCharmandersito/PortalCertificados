@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.certificados.model.Estudiante;
-import com.certificados.repository.EstudianteRepositoryImpl;
+import com.certificados.repository.EstudianteRepository;
 
 @Service
 public class EstudianteServiceImpl implements EstudianteService{
 
 	@Autowired
-	private EstudianteRepositoryImpl repo;
+	private EstudianteRepository repo;
 
 	@Override
 	public List<Estudiante> getAllEstudiantes() {		

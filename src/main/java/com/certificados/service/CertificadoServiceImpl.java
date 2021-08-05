@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.certificados.model.Certificados;
-import com.certificados.repository.CertificadoRepositoryImpl;
+import com.certificados.repository.CertificadoRepository;
 
 @Service
 public class CertificadoServiceImpl implements CertificadoService {
 	
 	@Autowired
-	private CertificadoRepositoryImpl repo;
+	private CertificadoRepository repo;
 
 	@Override
 	public List<Certificados> getAllCertificados() {
