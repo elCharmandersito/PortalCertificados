@@ -9,6 +9,4 @@ import com.certificados.model.Docente;
 
 public interface DocenteRepository extends JpaRepository<Docente, Integer>{
 	
-	List<Docente> findByNombre(String nombre) throws DataAccessException;
-
 }

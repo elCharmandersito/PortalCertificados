@@ -23,11 +23,11 @@ public class Certificados {
 	private String motivo;	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonBackReference
+	@JsonBackReference(value="estudiante")
 	private Estudiante alumnoSolicitante;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonBackReference
+	@JsonBackReference(value="docente")
 	private Docente docenteHabilitador;
 
 	public int getId() {
